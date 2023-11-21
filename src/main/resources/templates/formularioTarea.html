@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/css/lista.css">
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <title th:text="#{formulario_titulo}">Formulario de Tareas</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h1 class="navbar-brand" th:text="#{formulario_titulo}">Eliminar tarea</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}" th:text="#{detalles_cerrar}">Cerrar sesión</a>
+                </li>
+                <li><a th:href="@{/change-language?lang=es}" class="nav-link">Español</a></li>
+                <li><a th:href="@{/change-language?lang=en}" class="nav-link">English</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 class="mt-4" th:text="#{formulario_titulo}">Formulario de Tareas</h1>
+        <form th:object="${tarea}" th:action="@{( ${tarea.id} ? @{/tareas/{id}/editar(id=${tarea.id})} : @{/tareas/nueva} )}" method="post">
+            <div class="form-group">
+                <label for="nombreTarea" th:text="#{detalles_nombre}">Nombre de la Tarea:</label>
+                <input type="text" class="form-control" th:field="*{nombre}">
+            </div>
+            <div class="form-group">
+                <label for="descripcionTarea" th:text="#{detalles_descripcion}">Descripción:</label>
+                <textarea class="form-control" rows="4" th:field="*{descripcion}"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="fechaEntrega" th:text="#{detalles_fecha}">Fecha de Entrega:</label>
+                <input type="date" class="form-control" id="fecha" th:field="*{fechaDeEntrega}">
+            </div>
+            <div class="form-group">
+                <label for="estadoTarea" th:text="#{detalles_estado}">Estado:</label>
+                <p  id="estadoTarea">
+                    <input type="radio" th:field="*{completa}" value="true" th:text="#{formulario_completa}">
+                    <input type="radio" th:field="*{completa}" value="false" th:text="#{formulario_pendiente}">
+                </p>
+            </div>
+            <input type="submit" class="save-link" value="Guardar Tarea" />
+                <a  th:if="${tarea.id}" th:href="@{/tareas/{id}(id=${tarea.id})}" class="cancel-link" th:text="#{formulario_volver}">Volver</a>
+                <a  th:unless="${tarea.id}" th:href="@{/tareas}" class="cancel-link" th:text="#{formulario_cancelar}">Cancelar</a>
+        </form>
+    </div>
+
+    
+</body>
+</html>
+

@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+
+/* barra de navegacion*/
+
+
+nav {
+    background: #0a141d;
+    height: 90px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav.sticky {
+    position: fixed;
+}
+
+.enlace{
+    position: absolute;
+    padding: 20px 50px;
+}
+
+.logo{
+    height: 60px;
+}
+
+nav ul{
+    float: right;
+    margin-right: 20px;
+
+}
+
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+
+nav ul li a{
+    color: #fff;
+    font-size: 18px;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+
+li a.active, li a:hover{
+    background: #9191bd;
+    transition: .5s;
+}
+
+.checkbtn{
+    font-size: 30px; 
+    color: #fff;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check{
+    display: none;
+}
+
+section{
+    background: url(/img/fondo02.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+@media (max-width: 952px){
+    .enlace{
+        padding-left: 20px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+    }
+
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+
+    li a:hover, li a.active{
+        background: none;
+        color: #9191bd;
+    }
+
+    #check:checked ~ ul{
+        left: 0;
+    }
+}
+
+
+
+/* footer*/
+
+.pie-pagina{
+    width: 100%;
+    background-color: #0a141d;
+}
+
+.pie-pagina .grupo-1{
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+    
+}
+.pie-pagina .grupo-1 .box figure{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pie-pagina .grupo-1 .box figure img{
+    width: 250px;
+}
+.pie-pagina .grupo-1 .box h2{
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.pie-pagina .grupo-1 .box p{
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a{
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #0d2033;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover{
+    color: aqua;
+}
+
+.pie-pagina .grupo-2{
+
+    background-color: #0a1a2a;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.pie-pagina .grupo-2 small{
+    font-size: 15px;
+}
+
+
+@media screen and (max-width:800px){
+    .pie-pagina .grupo-1{
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+        
+    }
+}
+
+
+
+/* contenido index*/ 
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.contenido{
+    color: #fff;
+    text-align: center;
+    letter-spacing: .1em;
+    text-shadow: 0 0 10px rgba(0, 0, 0, .8);
+}
+
+.contenido h3{
+    font-size: 2em;
+}
+
+.contenido h1{
+    font-size: 3.5em;
+    padding-bottom: 30px;
+}
+
+.contenido button{
+    font-size: 1.3em;
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 50px;
+    cursor: pointer;
+    border-radius: 40px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    transition: .3s;
+	margin: 5px
+}
+
+.contenido button:hover{
+    background: #fff;
+    color: #0a0025;
+
+}
+

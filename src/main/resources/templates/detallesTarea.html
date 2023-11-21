@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{detalles_titulo}">Detalles de Tarea</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <link rel="stylesheet" href="/css/lista.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h1 class="navbar-brand" th:text="#{detalles_titulo}">Detalles tarea</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}" th:text="#{detalles_cerrar}">Cerrar sesión</a>
+                </li>
+                <li><a th:href="@{/change-language?lang=es}" class="nav-link">Español</a></li>
+                <li><a th:href="@{/change-language?lang=en}" class="nav-link">English</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title"><strong th:text="#{detalles_nombre}">Nombre de la Tarea:</strong> <span th:text="${tarea.nombre}"></span></p>
+                <p class="card-text"><strong th:text="#{detalles_descripcion}">Descripción de la Tarea:</strong> <span th:text="${tarea.descripcion}"></span></p>
+                <p class="card-text"><strong th:text="#{detalles_fecha}">Fecha de Entrega:</strong> <span th:text="${tarea.fechaDeEntrega}"></span></p>
+                <p class="card-text"><strong th:text="#{detalles_estado}">Estado:</strong> <span th:text="${tarea.completa ? 'Completa' : 'Pendiente'}"></span></p>
+            </div>
+            <div class="card-footer">
+                <a th:href="@{/tareas}" class="add-link" th:text="#{detalles_volver}">Volver</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

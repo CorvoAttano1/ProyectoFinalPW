@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/CSS" href="/css/login_register.css" >
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <title th:text="#{login_titulo}">INICIO DE SESIÓN</title>
+</head>
+<body>
+<form th:action="@{/login}" method="post" class="form">
+      
+    <div class="container-form login">
+        <div class="information">
+            <div class="info-childs">
+                <h2 th:text="#{login_h2}">Bienvenido Nuevamente</h2>
+                <p th:text="#{login_p}">Para unirte a nuestra comunidad por favor inicia sesión con tus datos</p>
+                <a th:href="@{/register}"><input type="button" th:value="#{login_registro}" id="sign-up"></a>
+                <a th:href="@{/principal}"><input type="button" th:value="#{login_inicio}"></a>
+            </div>
+        </div>
+                                                    
+      
+      <div class="form-information">
+            <div class="form-information-childs">
+               
+               
+               <div th:if=${param.error}>
+       				 <div class="alert alert-danger" th:text="#{login_invalido}">Usuario o contraseña inválidos</div>
+    			</div>                       
+               
+               
+                <h2 th:text="#{login_iniciar_sesion}">Iniciar Sesión</h2>
+                <form th:action="@{/login}" method="post" >
+                    <label>
+                        <i class='bx bx-envelope' ></i>
+                        <input type="email" id="username" name="username" th:placeholder="#{login_correo}" required autofocus="autofocus">
+                    </label>
+                    <label>
+                        <i class='bx bx-lock-alt'></i>
+                        <input type="password" id="password" name="password" th:placeholder="#{login_contrasena}" required autofocus="autofocus">
+                    </label>
+                    <input type="submit" th:value="#{login_v}" name="login-submit" id="login-submit">
+                </form>
+            </div>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+
+
+

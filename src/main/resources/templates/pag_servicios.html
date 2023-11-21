@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/CSS" href="/css/pag_servicios.css" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec54cb8e83.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <title th:text="#{servicio_titulo}">Servicios</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a th:href="@{/principal}" class="enlace">
+            <img src="/img/logotipo.png" alt="logotipo" class="logo">
+        </a>
+        <ul>
+            <li><a th:href="@{/principal}" th:text="#{inicio}">Inicio</a></li>
+            <li><a href="#footer" th:text="#{nosotros}">Nosotros</a></li>
+            <li><a class="active" th:href="@{/pag_servicios}" th:text="#{servicios}">Servicios</a></li>
+            <li><a th:href="@{/register}" th:text="#{empieza}">Empieza</a></li>
+            <li><a th:href="@{/login}" th:text="#{login}">Iniciar Sesión</a></li>
+            <li><a th:href="@{/change-language?lang=es}" class="language-button">Español</a></li>
+            <li><a th:href="@{/change-language?lang=en}" class="language-button">English</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <section class="contenedor sobre-nosotros">
+            <div class="contenedor-sobre-nosotros">
+                <img src="/img/serviciostareas.jpg" alt="Imagen que ilustrativa de los servicios que ofrecemos." class="imagen-about-us">
+                <div class="contenido-textos">
+                    <h3 th:utext="#{optimizacion}">Optimización de la Productividad</h3>
+                    <p th:utext="#{servicio_p1}">Al organizar tareas de manera más eficiente, se minimiza la sobrecarga de trabajo del usuario y se aprovechan al máximo sus habilidades y disponibilidad.</p>
+                    <h3 th:utext="#{gestion}">Gestión Proactiva de Cargas de Trabajo</h3>
+                    <p th:utext="#{servicio_p2}">evitando la acumulación excesiva de tareas para el usuario al tener sus trabajos mejor gestionados.</p>
+                    <h3 th:utext="#{personalizacion}">Personalización de Tareas</h3>
+                    <p th:utext="#{servicio_p3}">El usuario tiene la capacidad de ver el estado de su tarea y la capacidad de crear , editar y eliminar sus tareas.</p>    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina" id="footer">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="/img/logotipo.png" alt="Logo de ¿que hay pa...?">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_h2}">SOBRE NOSOTROS</h2>
+                <p th:text="#{principal_p1}">En ¿Qué hay pa...?, estamos comprometidos a simplificar tu vida y mejorar tu productividad. Nuestro equipo apasionado está formado por expertos en la gestión de tareas y la tecnología. </p>
+                <p th:text="#{principal_p2}">Nuestra misión es proporcionarte una plataforma de gestión de tareas intuitiva y poderosa que te ayude a alcanzar tus objetivos de manera más eficiente.</p>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_siguenos}">SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small th:text="#{footer}">&copy;2023<b>¿Qué hay pa...?</b>- Todos los Derechos Reservados. - Designed By: CorvoAttano1.</small>
+        </div>
+    </footer>
+
+</body>
+</html>

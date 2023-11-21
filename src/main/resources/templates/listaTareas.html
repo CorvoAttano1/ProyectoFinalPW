@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="#{lista_titulo}">Lista de Tareas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/ec54cb8e83.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="/css/lista.css">
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h1 class="navbar-brand" th:text="#{lista_titulo}">Lista de tareas</h1>        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="collapse navbar-collapse">
+            <a th:href="@{/tareas/nueva}" class="add-link">Nueva Tarea</a>
+             <span  class="emailusuario" sec:authentication="principal.username"></span>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}" th:text="#{detalles_cerrar}">Cerrar sesión</a>             
+                </li>
+                <li><a th:href="@{/change-language?lang=es}" class="nav-link">Español</a></li>
+                <li><a th:href="@{/change-language?lang=en}" class="nav-link">English</a></li>
+            </ul>
+        </div>
+    </nav>
+  <main>  
+   <section>
+    <table>
+        <thead>
+            <tr>
+                <th th:text="#{lista_nombre}">Nombre</th>
+                <th th:text="#{lista_fecha}">Fecha de Entrega</th>
+                <th th:text="#{lista_estado}">Estado</th>
+                <th th:text="#{lista_acciones}">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="tarea : ${tareas}" class="data-row">
+                <td th:text="${tarea.nombre}"></td>
+                <td th:text="${tarea.fechaDeEntrega}"></td>
+                <td th:text="${tarea.completa ? 'Completa' : 'Pendiente'}"></td>
+                <td class="actions">
+                    <a th:href="@{/tareas/{id}(id=${tarea.id})}"><span><i class="fas fa-info-circle"></i></span>
+                    </a>
+                    <a th:href="@{/tareas/{id}/editar(id=${tarea.id})}"><span><i class="fas fa-edit"></i>
+                    </span>
+                    </a>
+                    <a th:href="@{/tareas/{id}/eliminar(id=${tarea.id})}"><span><i class="fas fa-trash"></i></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </section>
+ </main>   
+   
+        <footer class="pie-pagina" id="footer">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="/img/logotipo.png" alt="Logo de ¿que hay pa...?">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_h2}">SOBRE NOSOTROS</h2>
+                <p th:text="#{principal_p1}">En ¿Qué hay pa...?, estamos comprometidos a simplificar tu vida y mejorar tu productividad. Nuestro equipo apasionado está formado por expertos en la gestión de tareas y la tecnología. </p>
+                <p th:text="#{principal_p2}">Nuestra misión es proporcionarte una plataforma de gestión de tareas intuitiva y poderosa que te ayude a alcanzar tus objetivos de manera más eficiente.</p>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_siguenos}">SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small th:text="#{footer}">&copy;2023<b>¿Qué hay pa...?</b>- Todos los Derechos Reservados. - Designed By: CorvoAttano1.</small>
+        </div>
+    </footer>
+
+</body>
+</html>

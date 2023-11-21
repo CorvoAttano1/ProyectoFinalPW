@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+    <title th:text="#{eliminar_titulo}">Eliminar Tarea</title>
+    <link rel="stylesheet" href="/css/eliminar.css">
+    <link rel="shortcut icon" href="/img/logotipo.PNG">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <h1 class="navbar-brand" th:text="#{eliminar_titulo}">Eliminar tarea</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" sec:authorize="isAuthenticated()">
+                    <a class="nav-link" th:href="@{/logout}" th:text="#{detalles_cerrar}">Cerrar sesión</a>
+                </li>
+                <li><a th:href="@{/change-language?lang=es}" class="nav-link">Español</a></li>
+                <li><a th:href="@{/change-language?lang=en}" class="nav-link">English</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <p class="confirmation" th:text="#{eliminar_p1}">¿Estás seguro de que deseas eliminar esta tarea?</p>
+        <p class="detail" th:text="#{eliminar_p2}">Nombre: </p><span th:text="${tarea.nombre}"></span>
+        <form th:action="@{/tareas/{id}/eliminar(id=${tarea.id})}" method="post">
+            <input type="submit" class="delete-button" th:value="#{eliminar_eliminar}" />
+            <a th:href="@{/tareas}" class="cancel-link" th:text="#{eliminar_cancelar}">Cancelar</a>
+        </form>
+    </div>
+</body>
+</html>

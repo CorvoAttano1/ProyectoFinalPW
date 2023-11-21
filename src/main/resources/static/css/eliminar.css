@@ -1,0 +1,85 @@
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .confirmation {
+            font-size: 18px;
+        }
+
+        .detail {
+            font-size: 16px;
+        }
+
+        .delete-button {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 10px;
+        }
+
+        .cancel-link {
+            background-color: #9191bd;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 10px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+
+            .title {
+                font-size: 20px;
+            }
+
+            .confirmation {
+                font-size: 16px;
+            }
+
+            .detail {
+                font-size: 14px;
+            }
+
+            .delete-button,
+            .cancel-link {
+                font-size: 14px;
+                padding: 8px 16px;
+                margin: 5px 5px;
+            }
+        }

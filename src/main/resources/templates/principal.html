@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/CSS" href="/css/principal.css" >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/ec54cb8e83.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="/img/logotipo.PNG"> 
+    <title th:text="#{principal_titulo}">Principal</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <a href="#" class="enlace">
+            <img src="/img/logotipo.png" alt="logotipo" class="logo">
+        </a>
+        <ul>
+            <li><a class="active" href="#" th:text="#{inicio}">Inicio</a></li>
+            <li><a href="#footer" th:text="#{nosotros}">Nosotros</a></li>
+            <li><a th:href="@{/pag_servicios}" th:text="#{servicios}">Servicios</a></li>
+            <li><a th:href="@{/register}" th:text="#{empieza}">Empieza</a></li>
+            <li><a th:href="@{/login}" th:text="#{login}">Iniciar Sesión</a></li>
+            <li><a th:href="@{/change-language?lang=es}" class="language-button">Español</a></li>
+            <li><a th:href="@{/change-language?lang=en}" class="language-button">English</a></li>
+        </ul>
+    </nav>
+<main>
+  <section class="hero">
+    <div class="contenido">
+        <h3 th:text="#{principal_h3}">Bienvenidos a ¿Qué hay pa...?</h3>
+        <h1 th:text="#{principal_h1}">Vamos con todas las ganas de orgarnizarte</h1>
+        <a th:href="@{/register}"><button th:text="#{principal_empieza}">Empieza ya</button></a>
+    </div>
+
+  </section>
+</main>
+
+    <footer class="pie-pagina" id="footer">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="/img/logotipo.png" alt="Logo de ¿que hay pa...?">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_h2}">SOBRE NOSOTROS</h2>
+                <p th:text="#{principal_p1}">En ¿Qué hay pa...?, estamos comprometidos a simplificar tu vida y mejorar tu productividad. Nuestro equipo apasionado está formado por expertos en la gestión de tareas y la tecnología. </p>
+                <p th:text="#{principal_p2}">Nuestra misión es proporcionarte una plataforma de gestión de tareas intuitiva y poderosa que te ayude a alcanzar tus objetivos de manera más eficiente.</p>
+            </div>
+            <div class="box">
+                <h2 th:text="#{principal_siguenos}">SIGUENOS</h2>
+                <div class="red-social">
+                    <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank" class="fa fa-instagram"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small th:text="#{footer}">&copy;2023<b>¿Qué hay pa...?</b>- Todos los Derechos Reservados. - Designed By: CorvoAttano1.</small>
+        </div>
+    </footer>
+    
+   
+</body>
+</html>

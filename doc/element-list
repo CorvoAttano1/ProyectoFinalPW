@@ -1,0 +1,7 @@
+com.proyecto.pw
+com.proyecto.pw.controlador
+com.proyecto.pw.controlador.dto
+com.proyecto.pw.modelo
+com.proyecto.pw.repositorio
+com.proyecto.pw.seguridad
+com.proyecto.pw.servicio
